@@ -1,0 +1,11 @@
+applications:
+  - name: springbootbookapi
+    memory: 1G
+    random-route: true
+    instances: 1
+    path: target/spring-hana-cloud-foundry-0.0.1-SNAPSHOT.jar
+    buildpacks:
+      - https://github.com/cloudfoundry/java-buildpack.git
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 17.+ }, memory_calculator: { stack_threads: 25 } }'
+      JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
